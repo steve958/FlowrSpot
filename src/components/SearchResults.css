@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
+
+#search-results-wrapper {
+  width: 100vw;
+  height: max-content;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: pink;
+  z-index: 0;
+}
+
+.flower-box {
+  padding: 10px;
+  text-align: center;
+  position: relative;
+}
+
+.flower-img {
+  border-radius: 20px;
+  width: 400px;
+  height: 400px;
+  z-index: 0;
+}
+
+.flower-name {
+  font-size: 50px;
+  color: white;
+  position: relative;
+  bottom: 150px;
+  z-index: 0;
+}
+
+.flower-name-latin {
+  font-family: 'Macondo', cursive;
+  position: relative;
+  bottom: 140px;
+  color: white;
+  z-index: 0;
+}
+
+.flower-sightings {
+  font-size: 20px;
+  color: white;
+  position: relative;
+  bottom: 130px;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+
+.flower-sightings-favorite {
+  background-color: gold;
+  font-size: 20px;
+  color: white;
+  position: relative;
+  bottom: 130px;
+}
+
+.star-logo {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 30px;
+}
+
+.star-logo:hover {
+  cursor: pointer;
+  width: 70px;
+  height: 70px;
+}

@@ -1,0 +1,46 @@
+#profile-modal-box {
+  border-radius: 20px;
+  width: 400px;
+  height: 550px;
+  background-color: aliceblue;
+  position: fixed;
+  display: flex;
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profile-headers {
+  font-size: 15px;
+  color: gray;
+  margin: 10px;
+}
+
+#profile-wrapper {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+}
+
+#avatar {
+  width: 150px;
+  height: 150px;
+  margin-right: 20px;
+}
+
+#logout-button {
+    text-align: center;
+    border-radius: 10px;
+    margin: 25px;
+    width: 150px;
+    height: 50px;
+    font-size: 25px;
+    border: none;
+    background-color: tomato;
+    color: aliceblue;
+}
+
+#logout-button:hover {
+    cursor: pointer;
+}

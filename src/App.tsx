@@ -1,26 +1,94 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
+import { useEffect } from 'react'
+import { useState } from 'react'
+import Header from './components/Header'
+import Main from './components/Main'
+import SearchResults from './components/SearchResults'
+import LoginModal from './components/LoginModal'
+import LoginModalTwo from './components/LoginModalTwo'
+import Profile from './components/Profile'
+import NewAccountModalOne from './components/NewAccountModalOne'
+import NewAccountModalTwo from './components/NewAccountModalTwo'
 
 function App() {
+  const [allFlowersList, setAllFlowersList] = useState<any>(null)
+  const [searchInput, setSearchInput] = useState<string>('')
+  const [loginClicked, setLoginClicked] = useState<boolean>(false)
+  const [token, setToken] = useState<string>('')
+  const [userData, setUserData] = useState<any>(null)
+  const [profileClicked, setProfileClicked] = useState<boolean>(false)
+  const [closeModal, setCloseModal] = useState<boolean>(false)
+  const [newAccountClicked, setNewAccountClicked] = useState<boolean>(false)
+  const [registrationModalOpen, setRegistrationModalOpen] = useState<boolean>(
+    false,
+  )
+  const [flowersClicked, setFlowersClicked] = useState<boolean>(false)
+  const [favoritesClicked, setFavoritesClicked] = useState<boolean>(false)
+  
+
+  useEffect(() => {
+    fetch('https://flowrspot-api.herokuapp.com/api/v1/flowers/random')
+      .then((res) => res.json())
+      .then((data) => {
+        setAllFlowersList(data.flowers)
+      })
+  }, [flowersClicked])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="app-wrapper">
+      {registrationModalOpen && (
+        <NewAccountModalTwo closeModal={setRegistrationModalOpen} />
+      )}
+      {newAccountClicked && (
+        <NewAccountModalOne
+          closeModal={setNewAccountClicked}
+          registrationSuccess={setRegistrationModalOpen}
+        />
+      )}
+
+      {token && closeModal && (
+        <LoginModalTwo
+          closeModal={setCloseModal}
+          setProfileClicked={setProfileClicked}
+        />
+      )}
+      {profileClicked && (
+        <Profile
+          userData={userData}
+          setToken={setToken}
+          setUserData={setUserData}
+          setProfileClicked={setProfileClicked}
+        />
+      )}
+      {loginClicked && (
+        <LoginModal
+          login={setLoginClicked}
+          setTokenValue={setToken}
+          setUserData={setUserData}
+          closeModal={setCloseModal}
+        />
+      )}
+      <Header
+        login={setLoginClicked}
+        token={token}
+        userData={userData}
+        setProfileClicked={setProfileClicked}
+        setNewAccountClicked={setNewAccountClicked}
+        setFlowersClicked={setFlowersClicked}
+        setFavoritesClicked={setFavoritesClicked}
+        flowersClicked={flowersClicked}
+        favoritesClicked={favoritesClicked}
+      ></Header>
+      <Main setSearch={setSearchInput}></Main>
+      <SearchResults
+        allFlowers={allFlowersList}
+        search={searchInput}
+        token={token}
+        favoritesClicked={favoritesClicked}
+      ></SearchResults>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

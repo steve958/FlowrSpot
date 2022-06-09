@@ -1,0 +1,34 @@
+#main-wrapper{
+    width: 100vw;
+    height: 70vh;
+    border: 2px solid palevioletred;
+    background-image: url('https://wallpaperaccess.com/full/497913.jpg');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+
+#main-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#main-text-large {
+    font-size: 70px;
+    color: aliceblue;
+    letter-spacing: 6px;
+}
+
+#main-text-small {
+    color: palevioletred;
+}
+
+#search-input {
+    margin: 10px;
+    height: 5vh;
+    width: 55vw;
+    font-size: 30px;
+}

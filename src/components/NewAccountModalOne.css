@@ -1,0 +1,42 @@
+#new-account-modal-box {
+    border-radius: 20px;
+    width: 600px;
+    height: 400px;
+    background-color: aliceblue;
+    position: fixed;
+    display: flex;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#new-account-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px;
+    justify-content: center;
+}
+
+#new-account-input-wrapper input {
+    margin: 5px;
+    height: 50px;
+    font-size: 20px;
+    border: 2px solid tomato;
+    border-radius: 10px;
+}
+
+#create-account-button {
+    margin: 5px;
+    height: 50px;
+    font-size: 20px;
+    border: none;
+    background-color: tomato;
+    border-radius: 10px;
+    color: aliceblue;
+}
+
+#create-account-button:hover {
+    cursor: pointer;
+}
